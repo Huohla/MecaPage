@@ -3,14 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./src/mecapage.svg" />
+    <link rel="stylesheet" href="./src/style.css">
+    <!-- * Importar FontAwesone -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MecaPage</title>
   </head>
   <body>
-    <nav>
-      <img src="./src/mecapage.svg" alt="">
+    <nav id="nav">
+      <div id="nav-left">
+        <a href="#">
+          <div class="icon logo">
+            <img src="./src/mecapage.svg" alt="Meca Page Logo" id="logo">
+            <span>mecapage</span>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <i class="fas fa-fw fa-keyboard"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <i class="fas fa-fw fa-crown"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <i class="fas fa-fw fa-info"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <i class="fas fa-fw fa-cog"></i>
+          </div>
+        </a>
+      </div>
+      <div id="nav-right">
+        <a href="#">
+          <div class="icon">
+            <i class="fas fa-fw fa-bell"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon">
+            <i class="far fa-fw fa-user"></i>
+          </div>
+        </a>
+      </div>
     </nav>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+
+    <div class="row">
+      <div class="puncAndNum">
+        <button class="textButton punctuationMode">
+          <i class="fas fa-fw fa-at"></i>
+          punctuation
+        </button>
+        <button class="textButton numbersMode">
+          <i class="fas fa-fw fa-hashtag"></i>
+          numbers
+        </button>
+      </div>
+
+      <div class="spacer leftSpacer"></div>
+
+      <div class="mode">
+        <button class="textButton active" mode="time">
+          <i class="fas fa-fw fa-clock"></i>
+          time
+        </button>
+        <button class="textButton" mode="words">
+          <i class="fas fa-fw fa-font"></i>
+          words
+        </button>
+        <button class="textButton" mode="quote">
+          <i class="fas fa-fw fa-quote-left"></i>
+          quote
+        </button>
+        <button class="textButton" mode="zen">
+          <i class="fas fa-fw fa-mountain"></i>
+          zen
+        </button>
+        <button class="textButton" mode="custom">
+          <i class="fas fa-fw fa-wrench"></i>
+          custom
+        </button>
+      </div>
+
+      <div class="spacer rightSpacer"></div>
+
+      <div class="time">
+        <button class="textButton" timeconfig="15"><span>15</span></button>
+        <button class="textButton active" timeconfig="30"><span>30</span></button>
+        <button class="textButton" timeconfig="60"><span>60</span></button>
+        <button class="textButton" timeconfig="120"><span>120</span></button>
+        <button class="textButton" timeconfig="custom">
+          <i class="fas fa-fw fa-tools"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- <div id="app"></div>
+    <script type="module" src="/src/main.js"></script> -->
   </body>
 </html>
