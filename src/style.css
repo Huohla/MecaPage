@@ -3,7 +3,9 @@
 
 body {
   background-color: #3d534f;
+  color: #757b7f;
   font-family: "Space Grotesk", monospace;
+  margin: 0;
 }
 
 /* * NAV */
@@ -13,14 +15,14 @@ body {
   margin: 0 10%;
 }
 
-#nav a {
+a {
   text-decoration: none;
 }
 
 #nav-left, #nav-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .logo {
@@ -28,6 +30,7 @@ body {
   align-items: center;
   font-size: 2.5em;
   padding-right: 20px;
+  color: #daefe1 !important;
 }
 
 #logo {
@@ -35,6 +38,10 @@ body {
 }
 
 .icon {
+  color: #757b7f;
+}
+
+.icon:hover {
   color: #daefe1;
 }
 
@@ -53,6 +60,7 @@ body {
   background-color: transparent;
   border: none;
   padding: 1em;
+  cursor: pointer;
 }
 
 .textButton:hover {
@@ -68,7 +76,106 @@ body {
   width: 0.2em;
   height: 1.2em;
   border-radius: 10px;
+  cursor: default;
 }
+
+/* * LANGUAGE */
+#language {
+  display: flex;
+  justify-content: center;
+}
+
+#language > .textButton {
+  font-size: 1.2em;
+  padding: 0.5em 1em;
+}
+
+/* * TYPING TEST */
+#typingTest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 204px;
+  font-size: 2rem;
+  max-width: 100%;
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+#progress {
+  height: 10px;
+  width: 100%;
+  background-color: #6c9c7c;
+}
+
+#progress > div {
+  height: 10px;
+  background-color: #ace3bb;
+}
+
+.completeTime {
+  animation-name: completeProgress;
+  animation-duration: var(--time);
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes completeProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* * FOOTER */
+.keyTips {
+  text-align: center;
+  line-height: 2em;
+  font-size: 0.9em;
+}
+
+.keyTips > key {
+  background-color: #757b7f;
+  color: #3d534f;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+
+.text {
+  font-size: 0.9em;
+  padding: 0;
+}
+
+.text:hover {
+  color: #daefe1;
+}
+
+.leftright {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10%;
+}
+
+.left, .right {
+  display: flex;
+  padding: 0;
+  align-items: center;
+}
+
+.left > .textButton, .right > .textButton {
+  display: flex;
+  font-size: 1em;
+  gap: 5px;
+}
+
+
 
 /* * MEDIA QUERIES */
 
