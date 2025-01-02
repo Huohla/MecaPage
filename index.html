@@ -114,10 +114,18 @@
       <div id="progress">
         <div></div>
       </div>
+      <input type="text" class="invisible">
       <button id="start" class="startButton">Start</button>
+      <div id="currentWord"></div>
       <button id="restartTestButton" aria-label="Restart Test" data-balloon-pos="down" class="textButton">
         <i class="fas fa-fw fa-redo-alt"></i>
       </button>
+    </div>
+    <div class="hidden" id="end">
+      <p id="correct">Letras correctas: <span>0</span></p>
+      <p id="incorrect">Errores: <span>0</span></p>
+      <p id="ppm">PPM: <span>0</span></p>
+      <!-- <button>Next test</button> -->
     </div>
 
     <footer>
@@ -169,5 +177,6 @@
 
     <!-- <div id="app"></div> -->
     <script type="module" src="/src/main.js"></script>
+    <script src="wordsArray.js"></script>
   </body>
 </html>

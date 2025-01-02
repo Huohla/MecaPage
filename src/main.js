@@ -1,23 +1,77 @@
 // * Elementos HTML
-const start = document.getElementById('start');
+const startButton = document.getElementById('start');
 const progress = document.querySelector('#progress div');
+const correctElement = document.querySelector('#correct span');
+const incorrectElement = document.querySelector('#incorrect span');
+const ppmElement = document.querySelector('#ppm span');
+const end = document.getElementById('end');
+const restartButton = document.getElementById('restartTestButton');
+const wordContainer = document.getElementById('currentWord');
+const input = document.querySelector("input");
 
 // * Variables
-const time = 60;
+const time = 2;
+let correctLetter;
+let incorrectLetter;
+let finishLetter;
+let letterList;
+let currentIndex;
 
-start.addEventListener('click', () => {
-  console.log('start');
-  progress.classList.toggle("completeTime", true);
-  start.classList.toggle('hidden', true);
-})
+// * Funciones
+function start() {
+    correctLetter = 0;
+    incorrectLetter = 0;
+    finishLetter = 0;
+    console.log('start');
+    end.classList.toggle('hidden', true);
+    progress.classList.toggle("completeTime", true);
+    startButton.classList.toggle('hidden', true);
+}
+
+function newWord() {
+    const nChosenWord = Math.floor(Math.random() * wordsArray.length);
+    const chosenWord = wordsArray[nChosenWord];
+    letterList = [];
+    currentIndex = 0;
+    for (let i = 0; i < chosenWord.length; i++) {
+        const letterElement = document.createElement('span');
+        letterElement.textContent = chosenWord[i];
+        wordContainer.appendChild(letterElement);
+        letterList.push(letterElement);
+    }
+}
+
+//  * Eventos
+startButton.addEventListener('click', () => start());
+restartButton.addEventListener('click', () => start());
 
 progress.addEventListener("animationend", () => {
+    end.classList.toggle('hidden', false);
     console.log('end');
     progress.classList.toggle("completeTime", false);
+    correctElement.textContent = "CAMBIAR";
+    incorrectElement.textContent = "CAMBIAR";
+    ppmElement.textContent = "CAMBIAR";
 })
 
 // * Ejecución
+input.focus();
 document.documentElement.style.setProperty("--time", time+"s");
+newWord();
+
+input.addEventListener("input", (event) => {
+    console.log(event, letterList[currentIndex]);
+    if(event.data === letterList[currentIndex].textContent) {
+        console.log('CORRECT LETTER');
+        currentIndex++;
+        correctLetter++;
+        // marcar letra finalizada
+    } else {
+        incorrectLetter++;
+        // marcar que hubo un error
+    }
+});
+input.addEventListener("blur", () => input.focus());
 
 // import './style.css'
 // import mecaLogo from './mecapage.svg';
