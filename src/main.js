@@ -1,3 +1,24 @@
+// * Elementos HTML
+const start = document.getElementById('start');
+const progress = document.querySelector('#progress div');
+
+// * Variables
+const time = 60;
+
+start.addEventListener('click', () => {
+  console.log('start');
+  progress.classList.toggle("completeTime", true);
+  start.classList.toggle('hidden', true);
+})
+
+progress.addEventListener("animationend", () => {
+    console.log('end');
+    progress.classList.toggle("completeTime", false);
+})
+
+// * Ejecución
+document.documentElement.style.setProperty("--time", time+"s");
+
 // import './style.css'
 // import mecaLogo from './mecapage.svg';
 // import { setupCounter } from './counter.js'
