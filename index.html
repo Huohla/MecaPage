@@ -53,61 +53,63 @@
       </div>
     </nav>
 
-    <div class="row">
-      <div class="puncAndNum">
-        <button class="textButton punctuationMode">
-          <i class="fas fa-fw fa-at"></i>
-          punctuation
-        </button>
-        <button class="textButton numbersMode">
-          <i class="fas fa-fw fa-hashtag"></i>
-          numbers
+    <div class="container">
+      <div class="row">
+        <div class="puncAndNum">
+          <button class="textButton punctuationMode">
+            <i class="fas fa-fw fa-at"></i>
+            punctuation
+          </button>
+          <button class="textButton numbersMode">
+            <i class="fas fa-fw fa-hashtag"></i>
+            numbers
+          </button>
+        </div>
+  
+        <div class="spacer leftSpacer"></div>
+  
+        <div class="mode">
+          <button class="textButton active" mode="time">
+            <i class="fas fa-fw fa-clock"></i>
+            time
+          </button>
+          <button class="textButton" mode="words">
+            <i class="fas fa-fw fa-font"></i>
+            words
+          </button>
+          <button class="textButton" mode="quote">
+            <i class="fas fa-fw fa-quote-left"></i>
+            quote
+          </button>
+          <button class="textButton" mode="zen">
+            <i class="fas fa-fw fa-mountain"></i>
+            zen
+          </button>
+          <button class="textButton" mode="custom">
+            <i class="fas fa-fw fa-wrench"></i>
+            custom
+          </button>
+        </div>
+  
+        <div class="spacer rightSpacer"></div>
+  
+        <div class="time">
+          <button class="textButton" timeconfig="15"><span>15</span></button>
+          <button class="textButton active" timeconfig="30"><span>30</span></button>
+          <button class="textButton" timeconfig="60"><span>60</span></button>
+          <button class="textButton" timeconfig="120"><span>120</span></button>
+          <button class="textButton" timeconfig="custom">
+            <i class="fas fa-fw fa-tools"></i>
+          </button>
+        </div>
+      </div>
+  
+      <div id="language">
+        <button class="textButton" commands="languages">
+          <i class="fas fa-globe-americas"></i>
+          english
         </button>
       </div>
-
-      <div class="spacer leftSpacer"></div>
-
-      <div class="mode">
-        <button class="textButton active" mode="time">
-          <i class="fas fa-fw fa-clock"></i>
-          time
-        </button>
-        <button class="textButton" mode="words">
-          <i class="fas fa-fw fa-font"></i>
-          words
-        </button>
-        <button class="textButton" mode="quote">
-          <i class="fas fa-fw fa-quote-left"></i>
-          quote
-        </button>
-        <button class="textButton" mode="zen">
-          <i class="fas fa-fw fa-mountain"></i>
-          zen
-        </button>
-        <button class="textButton" mode="custom">
-          <i class="fas fa-fw fa-wrench"></i>
-          custom
-        </button>
-      </div>
-
-      <div class="spacer rightSpacer"></div>
-
-      <div class="time">
-        <button class="textButton" timeconfig="15"><span>15</span></button>
-        <button class="textButton active" timeconfig="30"><span>30</span></button>
-        <button class="textButton" timeconfig="60"><span>60</span></button>
-        <button class="textButton" timeconfig="120"><span>120</span></button>
-        <button class="textButton" timeconfig="custom">
-          <i class="fas fa-fw fa-tools"></i>
-        </button>
-      </div>
-    </div>
-
-    <div id="language">
-      <button class="textButton" commands="languages">
-        <i class="fas fa-globe-americas"></i>
-        english
-      </button>
     </div>
 
     <div id="typingTest">

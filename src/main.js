@@ -10,11 +10,11 @@ const wordContainer = document.getElementById('currentWord');
 const input = document.querySelector("input");
 
 // * Variables
-const time = 2;
+const time = 60;
 let correctLetter;
 let incorrectLetter;
 let finishLetter;
-let letterList;
+let letterList = [];
 let currentIndex;
 
 // * Funciones
@@ -22,13 +22,16 @@ function start() {
     correctLetter = 0;
     incorrectLetter = 0;
     finishLetter = 0;
-    console.log('start');
+    // console.log('start');
     end.classList.toggle('hidden', true);
     progress.classList.toggle("completeTime", true);
     startButton.classList.toggle('hidden', true);
 }
 
 function newWord() {
+    if(letterList.length > 0) {
+        letterList.forEach(letter => wordContainer.removeChild(letter));
+    }
     const nChosenWord = Math.floor(Math.random() * wordsArray.length);
     const chosenWord = wordsArray[nChosenWord];
     letterList = [];
@@ -47,7 +50,7 @@ restartButton.addEventListener('click', () => start());
 
 progress.addEventListener("animationend", () => {
     end.classList.toggle('hidden', false);
-    console.log('end');
+    // console.log('end');
     progress.classList.toggle("completeTime", false);
     correctElement.textContent = "CAMBIAR";
     incorrectElement.textContent = "CAMBIAR";
@@ -60,11 +63,14 @@ document.documentElement.style.setProperty("--time", time+"s");
 newWord();
 
 input.addEventListener("input", (event) => {
-    console.log(event, letterList[currentIndex]);
+    // console.log(event, letterList[currentIndex]);
     if(event.data === letterList[currentIndex].textContent) {
-        console.log('CORRECT LETTER');
+        // console.log('CORRECT LETTER');
         currentIndex++;
         correctLetter++;
+        if(currentIndex === letterList.length) {
+            newWord();
+        }
         // marcar letra finalizada
     } else {
         incorrectLetter++;

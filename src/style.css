@@ -6,6 +6,8 @@ body {
   color: #757b7f;
   font-family: "Space Grotesk", monospace;
   margin: 0;
+  height: 97vh;
+  width: 100%;
 }
 
 /* * NAV */
@@ -13,6 +15,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 0 10%;
+  height: calc(100% / 6);
 }
 
 a {
@@ -45,7 +48,10 @@ a {
   color: #daefe1;
 }
 
-/* * ROW */
+/* * CONTAINER */
+.container {
+  height: calc(100% / 6);
+}
 .row {
   display: flex;
   justify-content: space-between;
@@ -96,7 +102,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 204px;
+  height: calc(100% / 3);
   font-size: 2rem;
   max-width: 100%;
   opacity: 1;
@@ -139,6 +145,10 @@ a {
 }
 
 /* * FOOTER */
+footer {
+  height: calc(100% / 3);
+}
+
 .keyTips {
   text-align: center;
   line-height: 2em;
