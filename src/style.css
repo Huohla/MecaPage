@@ -113,6 +113,10 @@ a {
 }
 
 .invisible {
+  opacity: 0;
+}
+
+input {
   position: absolute;
   top: -1000px;
 }
@@ -128,6 +132,10 @@ a {
   background-color: #ace3bb;
 }
 
+.currentLetter {
+  color: brown;
+}
+
 .completeTime {
   animation-name: completeProgress;
   animation-duration: var(--time);
@@ -141,6 +149,29 @@ a {
   }
   100% {
     width: 100%;
+  }
+}
+
+.dissapear {
+  font-size: 2rem;
+  position: absolute;
+  animation-name: dissapear;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes dissapear {
+  0% {
+
+  }
+  50% {
+    color: #757b7f;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+    font-size: 1rem;
   }
 }
 
