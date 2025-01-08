@@ -15,7 +15,7 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 0 10%;
-  height: calc(100% / 6);
+  height: 15%;
 }
 
 a {
@@ -50,23 +50,35 @@ a {
 
 /* * CONTAINER */
 .container {
-  height: calc(100% / 6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 13%;
+  max-width: 80%;
+  min-width: 50%;
+  margin-bottom: 30px;
   background-color: rgba(0, 0, 0, 0.36);
   border-radius: 10px;
 }
 
+.time {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 1em;
+}
+
 .textButton {
-  color: #757b7f;
-  background-color: transparent;
-  border: none;
-  padding: 1em;
   cursor: pointer;
+  padding: 1em;
+  background-color: transparent;
+  color: #757b7f; 
+  border: none;
+  font-size: 1em;
 }
 
 .textButton:hover {
@@ -89,6 +101,7 @@ a {
 #language {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 #language > .textButton {
@@ -102,10 +115,31 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: calc(100% / 3);
+  height: 53%;
   font-size: 2rem;
   max-width: 100%;
   opacity: 1;
+}
+
+.startButton {
+  cursor: pointer;
+  margin-top: 8%;
+  font-size: 2rem;
+  font-family: "Space Grotesk", monospace;
+  padding: 10px 40px;
+  background-color: rgba(0, 0, 0, 0.36);
+  color: #ace3bb;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+}
+
+.startButton:hover {
+  text-shadow: #daefe1 0px 0px 10px;
+}
+
+.startButton:active {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.85);
 }
 
 .hidden {
@@ -132,8 +166,16 @@ input {
   background-color: #ace3bb;
 }
 
+#currentWord {
+  height: 55%;
+}
+
 .currentLetter {
-  color: brown;
+  color: #87c39b;
+}
+
+#correct, #incorrect, #ppm {
+  margin: 13px 0;
 }
 
 .completeTime {
@@ -177,7 +219,10 @@ input {
 
 /* * FOOTER */
 footer {
-  height: calc(100% / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .keyTips {
@@ -206,7 +251,7 @@ footer {
 .leftright {
   display: flex;
   justify-content: space-between;
-  margin: 0 10%;
+  width: 80%;
 }
 
 .left, .right {

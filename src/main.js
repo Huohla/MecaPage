@@ -8,20 +8,27 @@ const end = document.getElementById('end');
 const restartButton = document.getElementById('restartTestButton');
 const wordContainer = document.getElementById('currentWord');
 const input = document.querySelector("input");
-let playing = false;
+const timeButtons = document.querySelectorAll(".timeButton");
 
 // * Variables
-const time = 10;
+let time = 30;
 let correctLetter;
 let incorrectLetter;
 let finishWord;
 let letterList = [];
 let currentIndex;
+let playing = false;
 
 // * Funciones
 function start() {
+    if(!time) {
+        time = 30;
+        // ? Hace falta esto?
+        document.documentElement.style.setProperty("--time", time + "s");
+    }
     playing = true;
     wordContainer.classList.toggle('hidden', false);
+    restartButton.classList.toggle('hidden', true);
     newWord();
     correctLetter = 0;
     incorrectLetter = 0;
@@ -64,24 +71,43 @@ function createLetterEfect(element) {
     document.body.appendChild(newLetter);
 }
 
+function updateTimeConfig(event) {
+    const clickedButton = event.currentTarget;
+    const newTime = clickedButton.getAttribute('timeconfig');
+    time = newTime ? parseInt(newTime, 10) : 0; // 0 Indica prueba libre
+    timeButtons.forEach(button => button.classList.remove('active'));
+    clickedButton.classList.add('active');
+    document.documentElement.style.setProperty("--time", time+"s");
+    console.log(`Tiempo configurado: ${time > 0 ? time + ' segundos' : 'Prueba libre'}`);
+}
+
 //  * Eventos
 startButton.addEventListener('click', () => start());
 restartButton.addEventListener('click', () => start());
 
 progress.addEventListener("animationend", () => {
+    if (time === 0) return; // No terminar la prueba si es prueba libre
     playing = false;
     end.classList.toggle('hidden', false);
     // console.log('end');
     progress.classList.toggle("completeTime", false);
     correctElement.textContent = correctLetter;
+    correctElement.style.color = "#ace3bb";
     incorrectElement.textContent = incorrectLetter;
+    incorrectElement.style.color = "#ace3bb";
     ppmElement.textContent = finishWord * (60 / time);
+    ppmElement.style.color = "#ace3bb";
     wordContainer.classList.toggle('hidden', true);
+    restartButton.classList.toggle('hidden', false);
 })
+
+timeButtons.forEach(button => {
+    button.addEventListener('click', updateTimeConfig);
+});
 
 // * Ejecución
 input.focus();
-document.documentElement.style.setProperty("--time", time+"s");
+document.documentElement.style.setProperty("--time", time + "s");
 //newWord();
 
 input.addEventListener("input", (event) => {
