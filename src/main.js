@@ -157,3 +157,47 @@ input.addEventListener("blur", () => input.focus());
 // `
 
 // setupCounter(document.querySelector('#counter'))
+
+const rankingTableBody = document.querySelector('#rankingTable tbody');
+    const filterButtons = document.querySelectorAll('.filterButton');
+
+    // Obtener los datos del localStorage
+    const results = JSON.parse(localStorage.getItem('mecaPageResults')) || [];
+
+    function renderTable(filter) {
+      rankingTableBody.innerHTML = '';
+
+      const filteredResults = results.filter(result => {
+        if (filter === 'all') return true;
+        if (filter === 'free') return result.time === 0;
+        return result.time === parseInt(filter, 10);
+      });
+
+      filteredResults.forEach(result => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+          <td>${result.time === 0 ? 'Prueba libre' : result.time + 's'}</td>
+          <td>${result.ppm}</td>
+          <td>${result.correct}</td>
+          <td>${result.incorrect}</td>
+          <td>${new Date(result.date).toLocaleString()}</td>
+        `;
+
+        rankingTableBody.appendChild(row);
+      });
+    }
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.getAttribute('data-filter');
+        renderTable(filter);
+      });
+    });
+
+    // Renderizar la tabla inicial
+    renderTable('all');
+    

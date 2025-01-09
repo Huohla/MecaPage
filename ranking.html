@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./src/mecapage.svg" />
+  <link rel="stylesheet" href="./src/style.css">
+  <!-- * Importar FontAwesone -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking - MecaPage</title>
+</head>
+<body>
+  <nav id="nav">
+    <div id="nav-left">
+      <a href="index.html">
+        <div class="icon logo">
+          <img src="./src/mecapage.svg" alt="Meca Page Logo" id="logo">
+          <span>mecapage</span>
+        </div>
+      </a>
+    </div>
+    <div id="nav-right">
+      <a href="index.html">
+        <div class="icon">
+            <i class="fas fa-fw fa-keyboard"></i>
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Ranking de Resultados</h1>
+
+    <div class="filters">
+      <button class="textButton filterButton active" data-filter="all">Todos</button>
+      <button class="textButton filterButton" data-filter="30">30s</button>
+      <button class="textButton filterButton" data-filter="60">1min</button>
+      <button class="textButton filterButton" data-filter="120">2min</button>
+      <button class="textButton filterButton" data-filter="free">Prueba libre</button>
+    </div>
+
+    <div id="rankingTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Tiempo</th>
+            <th>PPM</th>
+            <th>Correctos</th>
+            <th>Errores</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Los datos serán insertados dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    <div class="keyTips">
+      <key>Ranking de pruebas</key>
+    </div>
+    <div class="leftright">
+      <div class="left">
+        <a href="https://github.com/login" class="textButton" target="_blank">
+          <i class="fas fa-fw fa-code"></i>
+          <div class="text">github</div>
+        </a>
+        <a href="https://discord.com/login" class="textButton" target="_blank" rel="noreferrer noopener">
+          <i class="fab fa-fw fa-discord"></i>
+          <div class="text">discord</div>
+        </a>
+        <a href="https://x.com/i/flow/login" class="textButton" target="_blank" rel="noreferrer noopener">
+          <i class="fab fa-fw fa-twitter"></i>
+          <div class="text">twitter</div>
+        </a>
+      </div>
+      <div class="right">
+        <button class="currentVersion textButton">
+          <i class="fas fa-fw fa-code-branch"></i>
+          <div class="text">v1.0.0</div>
+        </button>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,138 +1,101 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/mecapage.svg" />
-    <link rel="stylesheet" href="./src/style.css">
-    <!-- * Importar FontAwesone -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MecaPage</title>
-  </head>
-  <body>
-    <nav id="nav">
-      <div id="nav-left">
-        <a href="#">
-          <div class="icon logo">
-            <img src="./src/mecapage.svg" alt="Meca Page Logo" id="logo">
-            <span>mecapage</span>
-          </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fas fa-fw fa-keyboard"></i>
-          </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fas fa-fw fa-crown"></i>
-          </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fas fa-fw fa-info"></i>
-          </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="fas fa-fw fa-cog"></i>
-          </div>
-        </a>
-      </div>
-      <div id="nav-right">
-        <a href="#">
-          <div class="icon">
-            <i class="fas fa-fw fa-bell"></i>
-          </div>
-        </a>
-        <a href="#">
-          <div class="icon">
-            <i class="far fa-fw fa-user"></i>
-          </div>
-        </a>
-      </div>
-    </nav>
-
-    <div class="container">
-      <div class="row">
-        <div class="time">
-          <button class="textButton timeButton active" timeconfig="30"><span>30s</span></button>
-          <div class="spacer"></div>
-          <button class="textButton timeButton" timeconfig="60"><span>1min</span></button>
-          <div class="spacer"></div>
-          <button class="textButton timeButton" timeconfig="120"><span>2min</span></button>
-          <div class="spacer"></div>
-          <button class="textButton timeButton" timeconfig=""><span>No time</span></button>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./src/mecapage.svg" />
+  <link rel="stylesheet" href="./src/style.css">
+  <!-- * Importar FontAwesone -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MecaPage</title>
+</head>
+<body>
+  <nav id="nav">
+    <div id="nav-left">
+      <a href="#">
+        <div class="icon logo">
+          <img src="./src/mecapage.svg" alt="Meca Page Logo" id="logo">
+          <span>mecapage</span>
         </div>
+      </a>
+    </div>
+    <div id="nav-right">
+      <a href="ranking.html">
+        <div class="icon">
+          <i class="fas fa-fw fa-crown"></i>
+        </div>
+      </a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="time">
+        <button class="textButton timeButton active" timeconfig="30"><span>30s</span></button>
+        <div class="spacer"></div>
+        <button class="textButton timeButton" timeconfig="60"><span>1min</span></button>
+        <div class="spacer"></div>
+        <button class="textButton timeButton" timeconfig="120"><span>2min</span></button>
+        <div class="spacer"></div>
+        <button class="textButton timeButton" timeconfig=""><span>Prueba libre</span></button>
       </div>
     </div>
+  </div>
 
-    <div id="typingTest">
-      <div id="progress">
-        <div></div>
-      </div>
-      <input type="text">
-      <button id="start" class="startButton">Start</button>
-      <div id="currentWord"></div>
-      <div class="hidden" id="end">
-        <p id="correct">Letras correctas: <span>0</span></p>
-        <p id="incorrect">Errores: <span>0</span></p>
-        <p id="ppm">PPM: <span>0</span></p>
-      </div>
-      <button id="restartTestButton" aria-label="Restart Test" class="textButton hidden">
-        <i class="fas fa-fw fa-redo-alt"></i>
-      </button>
+  <div id="typingTest">
+    <div id="progress">
+      <div></div>
+    </div>
+    <input type="text">
+    <button id="start" class="startButton">Iniciar test</button>
+    <div id="currentWord"></div>
+    <div class="hidden" id="end">
+      <p id="correct">Letras correctas: <span>0</span></p>
+      <p id="incorrect">Errores: <span>0</span></p>
+      <p id="ppm">PPM: <span>0</span></p>
+    </div>
+    <button id="restartTestButton" aria-label="Restart Test" class="textButton hidden">
+      <i class="fas fa-fw fa-redo-alt"></i>
+    </button>
+  </div>
+
+  <footer>
+    <div class="keyTips">
+      <key>espacio</key> - empezar test
     </div>
 
-    <footer>
-      <div class="keyTips">
-        <key>tab</key> + <key>enter</key> - restart test
-        <br>
-        <key>esc</key> or <key>ctrl</key>+<key>shift</key>+<key>p</key> - command line</div>
-
-        <div class="leftright">
-          <div class="left">
-            <button class="textButton" id="contactPopupButton">
-              <i class="fas fa-fw fa-envelope"></i>
-              <div class="text">contact</div>
-            </button>
-            <button id="supportMeButton" class="textButton">
-              <i class="fas fa-fw fa-donate"></i>
-              <div class="text">support</div>
-            </button>
-            <a href="https://github.com/login" class="textButton" target="_blank">
-              <i class="fas fa-fw fa-code"></i>
-              <div class="text">github</div>
-            </a>
-            <a href="https://discord.com/login" class="textButton" target="_blank" rel="noreferrer noopener">
-              <i class="fab fa-fw fa-discord"></i>
-              <div class="text">discord</div>
-            </a>
-            <a href="https://x.com/i/flow/login" class="textButton" target="_blank" rel="noreferrer noopener">
-              <i class="fab fa-fw fa-twitter"></i>
-              <div class="text">twitter</div>
-            </a>
-          </div>
-          <div class="right">
-            <!-- <button class="current-theme textButton" aria-label="Shift-click to toggle custom theme" data-balloon-pos="left">
-              <i class="fas fa-fw fa-palette"></i>
-              <div class="text">serika dark</div>
-            </button> -->
-            <button class="currentVersion textButton">
-              <i class="fas fa-fw fa-code-branch"></i>
-              <div class="text">v24.52.0</div>
-            </button>
-            <button class="termsAndConditions textButton">
-              <i class="fas fa-file"></i>
-              <div class="text">Terms & Conditions</div>
-            </button>
-          </div>
+      <div class="leftright">
+        <div class="left">
+          <a href="https://github.com/login" class="textButton" target="_blank">
+            <i class="fas fa-fw fa-code"></i>
+            <div class="text">github</div>
+          </a>
+          <a href="https://discord.com/login" class="textButton" target="_blank" rel="noreferrer noopener">
+            <i class="fab fa-fw fa-discord"></i>
+            <div class="text">discord</div>
+          </a>
+          <a href="https://x.com/i/flow/login" class="textButton" target="_blank" rel="noreferrer noopener">
+            <i class="fab fa-fw fa-twitter"></i>
+            <div class="text">twitter</div>
+          </a>
         </div>
-    </footer>
+        <div class="right">
+          <!-- <button class="current-theme textButton" aria-label="Shift-click to toggle custom theme" data-balloon-pos="left">
+            <i class="fas fa-fw fa-palette"></i>
+            <div class="text">serika dark</div>
+          </button> -->
+          <button class="currentVersion textButton">
+            <i class="fas fa-fw fa-code-branch"></i>
+            <div class="text">v1.0.0</div>
+          </button>
+        </div>
+      </div>
+  </footer>
 
 
-    <!-- <div id="app"></div> -->
-    <script type="module" src="/src/main.js"></script>
-    <script src="wordsArray.js"></script>
-  </body>
+  <!-- <div id="app"></div> -->
+  <script type="module" src="/src/main.js"></script>
+  <script src="wordsArray.js"></script>
+</body>
 </html>
+
