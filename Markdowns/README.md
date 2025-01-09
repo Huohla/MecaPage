@@ -1,1 +1,0 @@
-En el repositorio deberá existir un archivo nombrado README donde se explicará cómo ejecutar la aplicación, la arquitectura y estructura de esta, así como toda la información relevante acerca del proyecto. 
