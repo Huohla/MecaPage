@@ -12,7 +12,7 @@
 <body>
   <nav id="nav">
     <div id="nav-left">
-      <a href="index.html">
+      <a href="#">
         <div class="icon logo">
           <img src="./src/mecapage.svg" alt="Meca Page Logo" id="logo">
           <span>mecapage</span>
@@ -30,37 +30,41 @@
 
   <div class="container">
     <h1>Ranking de Resultados</h1>
-
-    <div class="filters">
-      <button class="textButton filterButton active" data-filter="all">Todos</button>
-      <button class="textButton filterButton" data-filter="30">30s</button>
-      <button class="textButton filterButton" data-filter="60">1min</button>
-      <button class="textButton filterButton" data-filter="120">2min</button>
-      <button class="textButton filterButton" data-filter="free">Prueba libre</button>
-    </div>
-
-    <div id="rankingTable">
-      <table>
-        <thead>
-          <tr>
-            <th>Tiempo</th>
-            <th>PPM</th>
-            <th>Correctos</th>
-            <th>Errores</th>
-            <th>Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Los datos serán insertados dinámicamente -->
-        </tbody>
-      </table>
+    <div class="rankingRow">
+      <div class="rankingTime">
+        <button class="textButton filterButton active" data-filter="all">Todos</button>
+        <div class="spacer"></div>
+        <button class="textButton filterButton" data-filter="30">30s</button>
+        <div class="spacer"></div>
+        <button class="textButton filterButton" data-filter="60">1min</button>
+        <div class="spacer"></div>
+        <button class="textButton filterButton" data-filter="120">2min</button>
+        <div class="spacer"></div>
+        <button class="textButton filterButton" data-filter="free">Prueba libre</button>
+      </div>
     </div>
   </div>
 
-  <footer>
-    <div class="keyTips">
-      <key>Ranking de pruebas</key>
-    </div>
+  <div id="rankingTable">
+    <table>
+      <thead>
+        <tr>
+          <th>Tiempo</th>
+          <th>PPM</th>
+          <th>Correctos</th>
+          <th>Errores</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- Los datos serán insertados dinámicamente -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer id="footer">
     <div class="leftright">
       <div class="left">
         <a href="https://github.com/login" class="textButton" target="_blank">
@@ -84,6 +88,7 @@
       </div>
     </div>
   </footer>
+  
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>

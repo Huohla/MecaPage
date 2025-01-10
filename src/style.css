@@ -54,22 +54,32 @@ a {
   flex-direction: column;
   align-items: center;
 }
-.row {
+
+.container h1 {
+  font-size: 1.7em;
+  color: #ace3bb;
+  text-shadow: #6c9c7c 0px 0px 10px;
+}
+
+.row, .rankingRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 80%;
-  min-width: 50%;
+  width: 50%;
   margin-bottom: 30px;
   background-color: rgba(0, 0, 0, 0.36);
   border-radius: 10px;
 }
 
-.time {
+.rankingRow {
+  width: 80%;
+}
+
+.time, .rankingTime {
   display: flex;
   align-items: center;
   margin: auto;
-  gap: 1em;
+  gap: 3em;
 }
 
 .textButton {
@@ -109,13 +119,12 @@ a {
   padding: 0.5em 1em;
 }
 
-/* * TYPING TEST */
+/* * TYPING TEST & RANKING TABLE */
 #typingTest {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 58%;
   font-size: 2rem;
   max-width: 100%;
   opacity: 1;
@@ -123,7 +132,8 @@ a {
 
 .startButton {
   cursor: pointer;
-  margin-top: 10%;
+  position: absolute;
+  top: 50%;
   font-size: 2rem;
   font-family: "Space Grotesk", monospace;
   padding: 10px 40px;
@@ -167,7 +177,8 @@ input {
 }
 
 #currentWord {
-  height: 55%;
+  position: absolute;
+  top: 50%;
 }
 
 .currentLetter {
@@ -183,6 +194,32 @@ input {
   animation-duration: var(--time);
   animation-fill-mode: forwards;
   animation-timing-function: linear;
+}
+
+#rankingTable {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#rankingTable table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.2em;
+}
+
+#rankingTable th {
+  padding: 10px 0;
+  color: #daefe1;
+  border: 5px double #6c9c7c;
+  border-top: none;
+}
+
+#rankingTable td {
+  text-align: center;
+  border: 5px double #6c9c7c;
+  border-top: none;
+  border-bottom: none;
+  padding: 10px 0;
 }
 
 @keyframes completeProgress {
@@ -217,12 +254,19 @@ input {
   }
 }
 
+#end {
+  margin-top: 5%;
+}
+
 /* * FOOTER */
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 
 .keyTips {
@@ -269,16 +313,39 @@ footer {
 
 
 /* * MEDIA QUERIES */
-
-/* @media (max-width: 560px) {
-  .logo span {
-    display: none;
-  }
-} */
-
-@media (max-width: 920px) {
+@media (max-width: 1414px) {
   .row {
     width: 80%;
+  }
+}
+
+@media (max-width: 1414px) {
+  .rankingTime {
+    gap: 2em;
+  }
+}
+
+@media (max-width: 909px) {
+  .rankingTime {
+    gap: 1em;
+  }
+}
+
+@media (max-width: 888px) {
+  .time {
+    gap: 2em;
+  }
+}
+
+@media (max-width: 740px) {
+  .time {
+    gap: 1em;
+  }
+}
+
+@media (max-width: 695px) {
+  .rankingTime {
+    gap: 0;
   }
 }
 
@@ -291,128 +358,17 @@ footer {
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 500px) {
   .time {
     gap: 0;
   }
   .textButton {
     padding: 1em 0.8em;
   }
-}
-
-
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #87c39b;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #6c9c7c;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #3d534f;
-  color: #daefe1;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #ace3bb);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #ace3bb;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #6c9c7c;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #ace3bb;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .rankingTime .textButton {
+    padding: 1em 0.4em;
   }
-  a:hover {
-    color: #747bff;
+  .rankingTime .spacer {
+    width: 1px;
   }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
-/* COLORES:
-#3d534f GRIS OSCURO
-#daefe1 VERDE CLARO
-#ace3bb VERDE CHILLÓN
-#87c39b VERDE NEUTRO
-#6c9c7c VERDE OSCURO */
-
-/* CSS HEX
---mineral-green: #3d534f;
---swans-down: #daefe1;
---de-york: #87c39b;
---rolling-stone: #757b7f;
---chinook: #ace3bb;
---oxley: #6c9c7c;
---edward: #a5b6ab;
---powder-ash: #bdcec3;
---bombay: #b3b3b4;
---aqua-forest: #64a478;
-*/
+}
