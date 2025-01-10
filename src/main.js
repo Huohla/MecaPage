@@ -1,14 +1,14 @@
 // * Elementos HTML
-const startButton = document.getElementById('start');
+const timeButtons = document.querySelectorAll(".timeButton");
 const progress = document.querySelector('#progress div');
+const startButton = document.getElementById('start');
+const input = document.querySelector("input");
+const wordContainer = document.getElementById('currentWord');
+const end = document.getElementById('end');
 const correctElement = document.querySelector('#correct span');
 const incorrectElement = document.querySelector('#incorrect span');
 const ppmElement = document.querySelector('#ppm span');
-const end = document.getElementById('end');
 const restartButton = document.getElementById('restartTestButton');
-const wordContainer = document.getElementById('currentWord');
-const input = document.querySelector("input");
-const timeButtons = document.querySelectorAll(".timeButton");
 
 // * Variables
 let time = 30;
@@ -20,23 +20,13 @@ let currentIndex;
 let playing = false;
 
 // * Funciones
-function start() {
-    if(!time) {
-        time = 30;
-        // ? Hace falta esto?
-        document.documentElement.style.setProperty("--time", time + "s");
-    }
-    playing = true;
-    wordContainer.classList.toggle('hidden', false);
-    restartButton.classList.toggle('hidden', true);
-    newWord();
-    correctLetter = 0;
-    incorrectLetter = 0;
-    finishWord = 0;
-    end.classList.toggle('hidden', true);
-    letterList[0].classList.toggle("currentLetter");
-    progress.classList.toggle("completeTime", true);
-    startButton.classList.toggle('hidden', true);
+function updateTimeConfig(event) {
+    const clickedButton = event.currentTarget;
+    const newTime = clickedButton.getAttribute('timeconfig');
+    timeButtons.forEach(button => button.classList.remove('active'));
+    clickedButton.classList.add('active');
+    time = newTime ? parseInt(newTime, 10) : 0; // 0 Indica prueba libre
+    document.documentElement.style.setProperty("--time", time+"s"); // ? Es necesario?
 }
 
 function newWord() {
@@ -55,57 +45,63 @@ function newWord() {
     }
 }
 
-function createLetterEfect(element) {
-    element.classList.toggle("invisible", true);
+function start() {
+    playing = true;
+    startButton.classList.toggle('hidden', true);
+    wordContainer.classList.toggle('hidden', false);
+    restartButton.classList.toggle('hidden', true);
+    end.classList.toggle('hidden', true);
+    progress.classList.toggle("completeTime", true);
+    correctLetter = 0;
+    incorrectLetter = 0;
+    finishWord = 0;
+    newWord();
+    letterList[0].classList.toggle("currentLetter");
+}
+
+function createLetterEffect(element) {
     const letter = element.textContent;
     const letterPosition = element.getBoundingClientRect(); // Función que devuelve en top, bottom, left y right las coordenadas de un elemento.
     const newLetter = document.createElement('span');
+    newLetter.textContent = letter;
     newLetter.style = `
         left: ${letterPosition.left}px;
         top: ${letterPosition.top}px;
     `
-    newLetter.classList.add('dissapear');
-    newLetter.textContent = letter;
     document.body.appendChild(newLetter);
-}
-
-function updateTimeConfig(event) {
-    const clickedButton = event.currentTarget;
-    const newTime = clickedButton.getAttribute('timeconfig');
-    time = newTime ? parseInt(newTime, 10) : 0; // 0 Indica prueba libre
-    timeButtons.forEach(button => button.classList.remove('active'));
-    clickedButton.classList.add('active');
-    document.documentElement.style.setProperty("--time", time+"s");
-    console.log(`Tiempo configurado: ${time > 0 ? time + ' segundos' : 'Prueba libre'}`);
+    newLetter.classList.add('dissapear');
+    element.classList.toggle("invisible", true);
 }
 
 //  * Eventos
+timeButtons.forEach(button => {
+    button.addEventListener('click', updateTimeConfig);
+});
+
 startButton.addEventListener('click', () => start());
 restartButton.addEventListener('click', () => start());
 
 progress.addEventListener("animationend", () => {
     if (time === 0) return; // No terminar la prueba si es prueba libre
     playing = false;
-    end.classList.toggle('hidden', false);
     progress.classList.toggle("completeTime", false);
+    wordContainer.classList.toggle('hidden', true);
+    end.classList.toggle('hidden', false);
     correctElement.textContent = correctLetter;
     correctElement.style.color = "#ace3bb";
     incorrectElement.textContent = incorrectLetter;
     incorrectElement.style.color = "#ace3bb";
-    ppmElement.textContent = finishWord * (60 / time);
+    let ppm = finishWord * (60 / time);
+    ppmElement.textContent = ppm
     ppmElement.style.color = "#ace3bb";
-    wordContainer.classList.toggle('hidden', true);
     restartButton.classList.toggle('hidden', false);
 })
 
-timeButtons.forEach(button => {
-    button.addEventListener('click', updateTimeConfig);
-});
-
 // * Ejecución
 input.focus();
-document.documentElement.style.setProperty("--time", time + "s");
-//newWord();
+input.addEventListener("blur", () => input.focus());
+
+document.documentElement.style.setProperty("--time", time + "s"); // ? Es redundante?
 
 input.addEventListener("input", (event) => {
     if(!playing) {
@@ -113,7 +109,7 @@ input.addEventListener("input", (event) => {
         return;
     }
     if(event.data === letterList[currentIndex].textContent) {
-        createLetterEfect(letterList[currentIndex]);
+        createLetterEffect(letterList[currentIndex]);
         currentIndex++;
         correctLetter++;
         if(currentIndex === letterList.length) {
@@ -121,13 +117,10 @@ input.addEventListener("input", (event) => {
             finishWord++;
         }
         letterList[currentIndex].classList.toggle("currentLetter")
-        // marcar letra finalizada
     } else {
         incorrectLetter++;
-        // marcar que hubo un error
     }
 });
-input.addEventListener("blur", () => input.focus());
 
 // import './style.css'
 // import mecaLogo from './mecapage.svg';

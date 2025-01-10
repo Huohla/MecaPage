@@ -107,18 +107,6 @@ a {
   cursor: default;
 }
 
-/* * LANGUAGE */
-#language {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-#language > .textButton {
-  font-size: 1.2em;
-  padding: 0.5em 1em;
-}
-
 /* * TYPING TEST & RANKING TABLE */
 #typingTest {
   display: flex;
