@@ -199,14 +199,11 @@ input {
   padding: 10px 0;
   color: #daefe1;
   border: 5px double #6c9c7c;
-  border-top: none;
 }
 
 #rankingTable td {
   text-align: center;
   border: 5px double #6c9c7c;
-  border-top: none;
-  border-bottom: none;
   padding: 10px 0;
 }
 

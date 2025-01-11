@@ -37,7 +37,7 @@
         <div class="spacer"></div>
         <button class="textButton timeButton" timeconfig="120"><span>2min</span></button>
         <div class="spacer"></div>
-        <button class="textButton timeButton" timeconfig=""><span>Prueba libre</span></button>
+        <button class="textButton timeButton" timeconfig="free"><span>Prueba libre</span></button>
       </div>
     </div>
   </div>
@@ -63,35 +63,35 @@
     <div class="keyTips">
       <key>espacio</key> - empezar test
     </div>
+    <div class="keyTips hidden" id="endFreeTest">
+      <key>suprimir</key> - terminar prueba libre
+    </div>  
 
-      <div class="leftright">
-        <div class="left">
-          <a href="https://github.com/login" class="textButton" target="_blank">
-            <i class="fas fa-fw fa-code"></i>
-            <div class="text">github</div>
-          </a>
-          <a href="https://discord.com/login" class="textButton" target="_blank" rel="noreferrer noopener">
-            <i class="fab fa-fw fa-discord"></i>
-            <div class="text">discord</div>
-          </a>
-          <a href="https://x.com/i/flow/login" class="textButton" target="_blank" rel="noreferrer noopener">
-            <i class="fab fa-fw fa-twitter"></i>
-            <div class="text">twitter</div>
-          </a>
-        </div>
-        <div class="right">
-          <button class="currentVersion textButton">
-            <i class="fas fa-fw fa-code-branch"></i>
-            <div class="text">v1.0.0</div>
-          </button>
-        </div>
+    <div class="leftright">
+      <div class="left">
+        <a href="https://github.com/login" class="textButton" target="_blank">
+          <i class="fas fa-fw fa-code"></i>
+          <div class="text">github</div>
+        </a>
+        <a href="https://discord.com/login" class="textButton" target="_blank" rel="noreferrer noopener">
+          <i class="fab fa-fw fa-discord"></i>
+          <div class="text">discord</div>
+        </a>
+        <a href="https://x.com/i/flow/login" class="textButton" target="_blank" rel="noreferrer noopener">
+          <i class="fab fa-fw fa-twitter"></i>
+          <div class="text">twitter</div>
+        </a>
       </div>
+      <div class="right">
+        <button class="currentVersion textButton">
+          <i class="fas fa-fw fa-code-branch"></i>
+          <div class="text">v1.0.0</div>
+        </button>
+      </div>
+    </div>
   </footer>
 
-
-  <!-- <div id="app"></div> -->
   <script type="module" src="/src/main.js"></script>
   <script src="wordsArray.js"></script>
 </body>
 </html>
-
