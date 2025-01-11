@@ -59,6 +59,7 @@ a {
   font-size: 1.7em;
   color: #ace3bb;
   text-shadow: #6c9c7c 0px 0px 10px;
+  margin-top: 0;
 }
 
 .row, .rankingRow {
@@ -185,6 +186,7 @@ input {
 }
 
 #rankingTable {
+  min-height: 50%;
   margin: 0 auto;
   width: 80%;
 }
@@ -193,6 +195,7 @@ input {
   width: 100%;
   border-collapse: collapse;
   font-size: 1.2em;
+  background-color: rgba(0, 0, 0, 0.36);
 }
 
 #rankingTable th {
@@ -244,7 +247,7 @@ input {
 }
 
 /* * FOOTER */
-footer {
+#footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -252,6 +255,15 @@ footer {
   position: absolute;
   bottom: 0px;
   width: 100%;
+}
+
+#rankingFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .keyTips {
@@ -295,8 +307,6 @@ footer {
   gap: 5px;
 }
 
-
-
 /* * MEDIA QUERIES */
 @media (max-width: 1414px) {
   .row {
@@ -313,6 +323,9 @@ footer {
 @media (max-width: 909px) {
   .rankingTime {
     gap: 1em;
+  }
+  #rankingTable table {
+    font-size: 1em;
   }
 }
 
@@ -332,6 +345,9 @@ footer {
   .rankingTime {
     gap: 0;
   }
+  #rankingTable th, #rankingTable td {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -340,6 +356,12 @@ footer {
   }
   .text {
     display: none;
+  }
+}
+
+@media (max-width: 530px) {
+  #rankingTable {
+    width: 100%
   }
 }
 
@@ -355,5 +377,12 @@ footer {
   }
   .rankingTime .spacer {
     width: 1px;
+  }
+}
+
+@media (max-width: 430px) {
+  #rankingTable th, #rankingTable td {
+    padding: 10px 5px;
+    border: 1px double #6c9c7c;
   }
 }
