@@ -27,6 +27,7 @@ src/
   ├── mecapage.svg      // Logo de la aplicación
 ranking.html            // Página de visualización de resultados
 index.html              // Página principal de la aplicación
+index.html              // Página de rankings de los test
 README.md               // Documentación del proyecto
 wordsArray.js           // Array de palabras para las pruebas
 ```
