@@ -242,6 +242,10 @@ input {
   }
 }
 
+#restartTestButton {
+  padding: 0;
+}
+
 #end {
   margin-top: 5%;
 }
